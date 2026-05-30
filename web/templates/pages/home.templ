@@ -1,0 +1,243 @@
+package pages
+
+import (
+	"github.com/milzam/go-starter/web/templates/layouts"
+)
+
+templ Home() {
+	@layouts.BaseWithNav("Production-ready Go SaaS boilerplate") {
+		<div data-signals="{ audienceTab: 'founders', openFAQ: 'framework' }">
+		<section class="relative overflow-hidden border-b border-slate-200 dark:border-slate-800/80 bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
+			<div class="absolute inset-0 bg-[radial-gradient(40rem_24rem_at_top,rgba(99,102,241,0.12),transparent)] dark:bg-[radial-gradient(40rem_24rem_at_top,rgba(129,140,248,0.16),transparent)]"></div>
+			<div class="relative mx-auto max-w-7xl px-6 py-24 sm:py-28 lg:px-8">
+				<div class="mx-auto max-w-4xl text-center space-y-8">
+					<span class="inline-flex items-center rounded-full border border-indigo-200 dark:border-indigo-800/60 bg-white/80 dark:bg-slate-900/80 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-indigo-700 dark:text-indigo-300 shadow-sm">
+						Production-ready Go SaaS boilerplate
+					</span>
+					<h1 class="text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-6xl lg:text-7xl">
+						Ship your Go SaaS with auth, billing, admin, docs, and background jobs already wired.
+					</h1>
+					<p class="mx-auto max-w-3xl text-lg leading-8 text-slate-600 dark:text-slate-300 sm:text-xl">
+						GoStarter gives you the parts every serious SaaS needs from day one: Postgres with sqlc and goose, templ-powered UI, Stripe billing, OAuth, 2FA, admin tools, docs, and queued background jobs. You start with a real application shape, not a toy demo.
+					</p>
+					<div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
+						<a href="/signup" class="btn-primary px-6 py-3 text-sm shadow-lg shadow-indigo-600/20">
+							Get Started
+						</a>
+						<a href="/docs" class="inline-flex items-center justify-center rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-6 py-3 text-sm font-semibold text-slate-700 dark:text-slate-300 shadow-sm transition-colors hover:bg-slate-50 dark:hover:bg-slate-800">
+							Explore Docs
+						</a>
+					</div>
+					<p class="text-sm font-medium text-slate-500 dark:text-slate-400">
+						Built with chi, pgx, sqlc, goose, templ, Datastar, Stripe, Casbin, and Asynq.
+					</p>
+				</div>
+
+				<div class="mt-16 grid gap-4 md:grid-cols-3">
+					<div class="card p-6 text-left">
+						<p class="text-sm font-semibold uppercase tracking-wide text-indigo-600 dark:text-indigo-400">Auth ready</p>
+						<p class="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-300">JWT, session cookies, OAuth, password reset, and TOTP 2FA included.</p>
+					</div>
+					<div class="card p-6 text-left">
+						<p class="text-sm font-semibold uppercase tracking-wide text-indigo-600 dark:text-indigo-400">Billing ready</p>
+						<p class="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-300">Stripe Checkout, Portal, and webhook sync already wired.</p>
+					</div>
+					<div class="card p-6 text-left">
+						<p class="text-sm font-semibold uppercase tracking-wide text-indigo-600 dark:text-indigo-400">Ops ready</p>
+						<p class="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-300">Background jobs, cleanup tasks, Docker setup, and CI drift checks built in.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="bg-white dark:bg-slate-900 py-24 sm:py-28 transition-colors duration-300">
+			<div class="mx-auto max-w-7xl px-6 lg:px-8">
+				<div class="mx-auto max-w-3xl text-center space-y-4">
+					<p class="text-sm font-semibold uppercase tracking-[0.18em] text-indigo-600 dark:text-indigo-400">Why teams start here</p>
+					<h2 class="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-4xl">Most starters save setup time. Few save architecture time.</h2>
+					<p class="text-lg leading-8 text-slate-600 dark:text-slate-300">
+						A lot of templates help you render a page. They do not help you answer the harder questions: where auth logic lives, how billing updates the database, how jobs are retried, how admin access is enforced, or how generated code stays in sync. GoStarter starts with those answers already in place.
+					</p>
+				</div>
+			</div>
+		</section>
+
+		<section class="border-y border-slate-200 dark:border-slate-800/80 bg-slate-50 dark:bg-slate-950 py-24 sm:py-28 transition-colors duration-300">
+			<div class="mx-auto max-w-7xl px-6 lg:px-8">
+				<div class="mx-auto max-w-3xl text-center space-y-4">
+					<p class="text-sm font-semibold uppercase tracking-[0.18em] text-indigo-600 dark:text-indigo-400">What you get</p>
+					<h2 class="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-4xl">The boring infrastructure is already done.</h2>
+					<p class="text-lg leading-8 text-slate-600 dark:text-slate-300">
+						GoStarter ships with the core systems most SaaS apps need before their first real customer.
+					</p>
+				</div>
+
+				<div class="mt-16 grid gap-6 lg:grid-cols-2">
+					<div class="card p-8">
+						<h3 class="text-xl font-semibold text-slate-900 dark:text-white">Authentication that feels complete</h3>
+						<p class="mt-3 text-slate-600 dark:text-slate-300">Email/password auth, session cookies for web, JWT for API clients, OAuth providers, password recovery, email verification, and built-in TOTP 2FA.</p>
+					</div>
+					<div class="card p-8">
+						<h3 class="text-xl font-semibold text-slate-900 dark:text-white">Billing that matches production reality</h3>
+						<p class="mt-3 text-slate-600 dark:text-slate-300">Stripe customer creation, Checkout, Billing Portal, webhook verification, idempotent event handling, and subscription state synced back into your app.</p>
+					</div>
+					<div class="card p-8">
+						<h3 class="text-xl font-semibold text-slate-900 dark:text-white">Typed data layer without ORM sprawl</h3>
+						<p class="mt-3 text-slate-600 dark:text-slate-300">Postgres with pgx, sqlc, and goose keeps your queries explicit, typed, and versioned. The data layer stays predictable as the app grows.</p>
+					</div>
+					<div class="card p-8">
+						<h3 class="text-xl font-semibold text-slate-900 dark:text-white">UI that stays server-first</h3>
+						<p class="mt-3 text-slate-600 dark:text-slate-300">templ, Tailwind, and Datastar let you build responsive interfaces and interactive flows without dragging in a heavy SPA runtime.</p>
+					</div>
+					<div class="card p-8">
+						<h3 class="text-xl font-semibold text-slate-900 dark:text-white">Authorization and admin controls</h3>
+						<p class="mt-3 text-slate-600 dark:text-slate-300">Global RBAC through Casbin, admin-only routes, user management pages, and a clean place to expand privileged workflows.</p>
+					</div>
+					<div class="card p-8">
+						<h3 class="text-xl font-semibold text-slate-900 dark:text-white">Background work that is already separated</h3>
+						<p class="mt-3 text-slate-600 dark:text-slate-300">Asynq workers handle email delivery, cleanup jobs, and billing-related tasks so your request path stays lean and your app can grow safely.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="bg-white dark:bg-slate-900 py-24 sm:py-28 transition-colors duration-300">
+			<div class="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-[1.15fr_0.85fr] lg:px-8">
+				<div class="space-y-4">
+					<p class="text-sm font-semibold uppercase tracking-[0.18em] text-indigo-600 dark:text-indigo-400">Architecture</p>
+					<h2 class="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-4xl">Clear boundaries, explicit wiring, fewer surprises.</h2>
+					<p class="text-lg leading-8 text-slate-600 dark:text-slate-300">
+						GoStarter follows a straightforward shape: handlers at the edge, services for business logic, sqlc-generated queries for persistence, and workers for asynchronous jobs. Dependencies are explicit. Data flow is easy to follow. The project is meant to be changed confidently, not tiptoed around.
+					</p>
+				</div>
+				<div class="card p-8">
+					<ul class="space-y-4 text-sm font-medium text-slate-700 dark:text-slate-200">
+						<li>HTTP with chi</li>
+						<li>Postgres via pgx + sqlc + goose</li>
+						<li>Server-rendered UI with templ + Datastar</li>
+						<li>Stripe billing integration</li>
+						<li>Asynq worker processes</li>
+						<li>CI checks for generated drift</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+
+		<section class="border-y border-slate-200 dark:border-slate-800/80 bg-slate-50 dark:bg-slate-950 py-24 sm:py-28 transition-colors duration-300">
+			<div class="mx-auto max-w-7xl px-6 lg:px-8">
+				<div class="mx-auto max-w-3xl text-center space-y-4">
+					<p class="text-sm font-semibold uppercase tracking-[0.18em] text-indigo-600 dark:text-indigo-400">Who it is for</p>
+					<h2 class="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-4xl">Built for people shipping real products.</h2>
+					<p class="text-lg leading-8 text-slate-600 dark:text-slate-300">
+						GoStarter works best for indie founders, product engineers, and small teams who want to launch a serious Go application without spending weeks rebuilding the same auth, billing, queue, and admin foundation again.
+					</p>
+				</div>
+				<div class="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
+					<button data-on:click="$audienceTab = 'founders'" data-class="$audienceTab === 'founders' ? 'bg-indigo-600 text-white border-indigo-600' : 'bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-800'" class="rounded-xl border px-5 py-2.5 text-sm font-semibold transition-colors">Founders</button>
+					<button data-on:click="$audienceTab = 'developers'" data-class="$audienceTab === 'developers' ? 'bg-indigo-600 text-white border-indigo-600' : 'bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-800'" class="rounded-xl border px-5 py-2.5 text-sm font-semibold transition-colors">Developers</button>
+					<button data-on:click="$audienceTab = 'teams'" data-class="$audienceTab === 'teams' ? 'bg-indigo-600 text-white border-indigo-600' : 'bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-800'" class="rounded-xl border px-5 py-2.5 text-sm font-semibold transition-colors">Teams</button>
+				</div>
+				<div class="mt-12 grid gap-4">
+					<div data-show="$audienceTab === 'founders'" class="card p-6 text-center">
+						<p class="font-semibold text-slate-900 dark:text-white">Founders who want to get to product work faster</p>
+						<p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Start with the systems that usually slow launch velocity down: login, billing, admin tooling, background jobs, and deployment shape.</p>
+					</div>
+					<div data-show="$audienceTab === 'developers'" class="card p-6 text-center">
+						<p class="font-semibold text-slate-900 dark:text-white">Go developers who prefer explicit architecture over magic</p>
+						<p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Keep clear ownership boundaries, typed SQL, direct dependencies, and a codebase that still makes sense after the product starts changing fast.</p>
+					</div>
+					<div data-show="$audienceTab === 'teams'" class="card p-6 text-center">
+						<p class="font-semibold text-slate-900 dark:text-white">Teams that want a starter they can keep, not throw away</p>
+						<p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Move from starter to shipped product without a rewrite when your internal workflows, billing rules, and admin paths become more complex.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="bg-white dark:bg-slate-900 py-24 sm:py-28 transition-colors duration-300">
+			<div class="mx-auto max-w-7xl px-6 lg:px-8">
+				<div class="grid gap-8 lg:grid-cols-2">
+					<div class="card p-8">
+						<p class="text-sm font-semibold uppercase tracking-[0.18em] text-indigo-600 dark:text-indigo-400">Explore before you commit</p>
+						<h2 class="mt-4 text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">See the UI, inspect the docs, understand the shape.</h2>
+						<p class="mt-4 text-lg leading-8 text-slate-600 dark:text-slate-300">
+							The project includes a docs surface and a component showcase so you can evaluate both the product foundation and the frontend building blocks before you start extending it.
+						</p>
+						<div class="mt-6 flex flex-col gap-4 sm:flex-row">
+							<a href="/docs" class="btn-primary px-6 py-3 text-sm">Read Docs</a>
+							<a href="/showcase" class="inline-flex items-center justify-center rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-6 py-3 text-sm font-semibold text-slate-700 dark:text-slate-300 shadow-sm transition-colors hover:bg-slate-50 dark:hover:bg-slate-800">View Showcase</a>
+						</div>
+					</div>
+					<div class="card p-8">
+						<p class="text-sm font-semibold uppercase tracking-[0.18em] text-indigo-600 dark:text-indigo-400">Launch faster</p>
+						<h2 class="mt-4 text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">Start from a working baseline instead of another empty repo.</h2>
+						<p class="mt-4 text-lg leading-8 text-slate-600 dark:text-slate-300">
+							When the foundation already covers auth, billing, admin, background jobs, and deployment setup, your time goes into product decisions instead of plumbing.
+						</p>
+						<div class="mt-6">
+							<a href="/pricing" class="btn-primary px-6 py-3 text-sm">See Pricing</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="border-y border-slate-200 dark:border-slate-800/80 bg-slate-50 dark:bg-slate-950 py-24 sm:py-28 transition-colors duration-300">
+			<div class="mx-auto max-w-5xl px-6 lg:px-8">
+				<div class="mx-auto max-w-3xl text-center space-y-4">
+					<h2 class="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-4xl">Frequently asked questions</h2>
+				</div>
+				<div class="mt-12 grid gap-6">
+					<div class="card p-6">
+						<button data-on:click="$openFAQ = $openFAQ === 'framework' ? '' : 'framework'" class="flex w-full items-center justify-between text-left">
+							<h3 class="text-lg font-semibold text-slate-900 dark:text-white">Is this a starter or a full framework?</h3>
+							<span class="text-xl text-slate-400" data-show="$openFAQ !== 'framework'">+</span>
+							<span class="text-xl text-slate-400" data-show="$openFAQ === 'framework'">-</span>
+						</button>
+						<p data-show="$openFAQ === 'framework'" class="mt-3 text-slate-600 dark:text-slate-300">It is a boilerplate with strong defaults, not a framework that hides your app behind conventions. You keep control over the codebase and architecture.</p>
+					</div>
+					<div class="card p-6">
+						<button data-on:click="$openFAQ = $openFAQ === 'saas' ? '' : 'saas'" class="flex w-full items-center justify-between text-left">
+							<h3 class="text-lg font-semibold text-slate-900 dark:text-white">Can I use it for a real SaaS product?</h3>
+							<span class="text-xl text-slate-400" data-show="$openFAQ !== 'saas'">+</span>
+							<span class="text-xl text-slate-400" data-show="$openFAQ === 'saas'">-</span>
+						</button>
+						<p data-show="$openFAQ === 'saas'" class="mt-3 text-slate-600 dark:text-slate-300">Yes. The project is shaped around production concerns like billing sync, session handling, role-gated admin routes, workers, migrations, and CI checks.</p>
+					</div>
+					<div class="card p-6">
+						<button data-on:click="$openFAQ = $openFAQ === 'stack' ? '' : 'stack'" class="flex w-full items-center justify-between text-left">
+							<h3 class="text-lg font-semibold text-slate-900 dark:text-white">What stack does it use?</h3>
+							<span class="text-xl text-slate-400" data-show="$openFAQ !== 'stack'">+</span>
+							<span class="text-xl text-slate-400" data-show="$openFAQ === 'stack'">-</span>
+						</button>
+						<p data-show="$openFAQ === 'stack'" class="mt-3 text-slate-600 dark:text-slate-300">Go with chi, pgx, sqlc, goose, templ, Tailwind, Datastar, Stripe, Casbin, and Asynq.</p>
+					</div>
+					<div class="card p-6">
+						<button data-on:click="$openFAQ = $openFAQ === 'tenancy' ? '' : 'tenancy'" class="flex w-full items-center justify-between text-left">
+							<h3 class="text-lg font-semibold text-slate-900 dark:text-white">Is it single-tenant or multi-tenant?</h3>
+							<span class="text-xl text-slate-400" data-show="$openFAQ !== 'tenancy'">+</span>
+							<span class="text-xl text-slate-400" data-show="$openFAQ === 'tenancy'">-</span>
+						</button>
+						<p data-show="$openFAQ === 'tenancy'" class="mt-3 text-slate-600 dark:text-slate-300">The current architecture is single-tenant by design, which keeps the base simpler and easier to extend.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="bg-white dark:bg-slate-900 py-24 sm:py-28 transition-colors duration-300">
+			<div class="mx-auto max-w-4xl px-6 text-center lg:px-8">
+				<div class="card p-10 sm:p-12">
+					<h2 class="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-4xl">Build the product, not the scaffolding.</h2>
+					<p class="mx-auto mt-4 max-w-2xl text-lg leading-8 text-slate-600 dark:text-slate-300">
+						GoStarter gives you a serious Go SaaS baseline with the core systems already connected. Clone it, run it, and start shaping the parts that make your product yours.
+					</p>
+					<div class="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+						<a href="/signup" class="btn-primary px-6 py-3 text-sm">Get Started</a>
+						<a href="/docs" class="inline-flex items-center justify-center rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-6 py-3 text-sm font-semibold text-slate-700 dark:text-slate-300 shadow-sm transition-colors hover:bg-slate-50 dark:hover:bg-slate-800">Read the Docs</a>
+					</div>
+				</div>
+			</div>
+		</section>
+		</div>
+	}
+}

@@ -1,0 +1,42 @@
+# Binaries
+bin/
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test
+*.test
+*.out
+coverage.html
+coverage.txt
+
+# Dependency
+vendor/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Build / temp
+tmp/
+dist/
+
+# Generated CSS (rebuilt via make css)
+web/static/css/style.css
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Air hot-reload
+.air.toml

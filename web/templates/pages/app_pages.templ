@@ -1,0 +1,142 @@
+package pages
+
+import (
+	"github.com/milzam/go-starter/internal/modules/billing"
+	"github.com/milzam/go-starter/internal/modules/users"
+	"github.com/milzam/go-starter/web/templates/layouts"
+)
+
+templ ForgotPassword() {
+	@layouts.Base("Forgot Password") {
+		<div class="max-w-md mx-auto mt-16 card p-6 space-y-4">
+			<h1 class="text-2xl font-bold text-slate-900 dark:text-white">Reset your password</h1>
+			<form method="post" action="/auth/forgot-password-web" class="space-y-3">
+				<label class="label" for="email">Email</label>
+				<input class="input" id="email" name="email" type="email" required/>
+				<button class="btn-primary w-full" type="submit">Send reset link</button>
+			</form>
+		</div>
+	}
+}
+
+templ ResetPassword(token string) {
+	@layouts.Base("Reset Password") {
+		<div class="max-w-md mx-auto mt-16 card p-6 space-y-4">
+			<h1 class="text-2xl font-bold text-slate-900 dark:text-white">Set a new password</h1>
+			<form method="post" action="/auth/reset-password-web" class="space-y-3">
+				<input type="hidden" name="token" value={ token }/>
+				<label class="label" for="new_password">New Password</label>
+				<input class="input" id="new_password" name="new_password" type="password" required/>
+				<button class="btn-primary w-full" type="submit">Update password</button>
+			</form>
+		</div>
+	}
+}
+
+templ VerifyEmail(token string) {
+	@layouts.Base("Verify Email") {
+		<div class="max-w-md mx-auto mt-16 card p-6 space-y-4">
+			<h1 class="text-2xl font-bold text-slate-900 dark:text-white">Verify your email</h1>
+			<p class="text-slate-600 dark:text-slate-300">Click verify to activate your account.</p>
+			<form method="post" action="/auth/verify-email-web" class="space-y-3">
+				<input type="hidden" name="token" value={ token }/>
+				<button class="btn-primary w-full" type="submit">Verify email</button>
+			</form>
+		</div>
+	}
+}
+
+templ SettingsIndex() {
+	@layouts.Dashboard("Settings", "profile") {
+		<div class="grid md:grid-cols-3 gap-4">
+			<a class="card p-4 block font-medium text-slate-900 dark:text-slate-100 hover:border-indigo-400 dark:hover:border-indigo-500 transition-colors" href="/settings/profile">Profile</a>
+			<a class="card p-4 block font-medium text-slate-900 dark:text-slate-100 hover:border-indigo-400 dark:hover:border-indigo-500 transition-colors" href="/settings/billing">Billing</a>
+			<a class="card p-4 block font-medium text-slate-900 dark:text-slate-100 hover:border-indigo-400 dark:hover:border-indigo-500 transition-colors" href="/settings/security">Security</a>
+		</div>
+	}
+}
+
+templ SettingsProfile() {
+	@layouts.Dashboard("Profile", "profile") {
+		<div class="card p-6 max-w-xl space-y-3">
+			<h2 class="text-xl font-semibold">Profile</h2>
+			<p class="text-slate-600 dark:text-slate-300">Update your profile from API endpoints: <code>/api/v1/users/&lt;id&gt;</code>.</p>
+		</div>
+	}
+}
+
+templ SettingsBilling(info *billing.SubscriptionInfo) {
+	@layouts.Dashboard("Billing", "billing") {
+		<div class="card p-6 max-w-xl space-y-3">
+			<h2 class="text-xl font-semibold">Billing</h2>
+			if info != nil {
+				<p class="text-slate-700 dark:text-slate-200">Plan: <strong>{ info.Plan }</strong></p>
+				<p class="text-slate-700 dark:text-slate-200">Status: <strong>{ info.Status }</strong></p>
+			}
+			<form method="post" action="/billing/portal-web">
+				<button type="submit" class="btn-primary">Open Billing Portal</button>
+			</form>
+		</div>
+	}
+}
+
+templ SettingsSecurity() {
+	@layouts.Dashboard("Security", "security") {
+		<div class="card p-6 max-w-xl space-y-3">
+			<h2 class="text-xl font-semibold">Security</h2>
+			<p class="text-slate-600 dark:text-slate-300">Manage password and 2FA from auth API routes.</p>
+		</div>
+	}
+}
+
+templ AdminDashboard() {
+	@layouts.Dashboard("Admin", "admin") {
+		<div class="card p-6">
+			<h2 class="text-xl font-semibold">Admin Overview</h2>
+			<p class="text-slate-600 dark:text-slate-300">Operational metrics and user management links.</p>
+		</div>
+	}
+}
+
+templ AdminUsers(list *users.ListUsersResponse) {
+	@layouts.Dashboard("Admin Users", "admin-users") {
+		<div class="card p-6">
+			<h2 class="text-xl font-semibold">Users</h2>
+			if list != nil && len(list.Users) > 0 {
+				<div class="overflow-x-auto mt-4">
+					<table class="min-w-full text-sm">
+						<thead>
+							<tr class="text-left border-b border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300">
+								<th class="py-2 pr-4 font-semibold">Email</th>
+								<th class="py-2 pr-4 font-semibold">Name</th>
+								<th class="py-2 pr-4 font-semibold">Role</th>
+								<th class="py-2 font-semibold">Status</th>
+							</tr>
+						</thead>
+						<tbody>
+							for _, u := range list.Users {
+								<tr class="border-b border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-200">
+									<td class="py-2 pr-4">{ u.Email }</td>
+									<td class="py-2 pr-4">{ u.Name }</td>
+									<td class="py-2 pr-4">{ u.Role }</td>
+									<td class="py-2">{ u.SubscriptionStatus }</td>
+								</tr>
+							}
+						</tbody>
+					</table>
+				</div>
+			} else {
+				<p class="text-slate-600 dark:text-slate-300">No users found.</p>
+			}
+		</div>
+	}
+}
+
+templ AdminUserDetail(id string) {
+	@layouts.Dashboard("Admin User", "admin-users") {
+		<div class="card p-6">
+			<h2 class="text-xl font-semibold">User Detail</h2>
+			<p class="text-slate-600 dark:text-slate-300">User ID: { id }</p>
+		</div>
+	}
+}
